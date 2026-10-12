@@ -1,2 +1,16 @@
+#####################################
+# hal_attribute_lineage(hal_name)
+# Defined locally: AOSPA does not ship device/lineage/sepolicy, but the Motorola
+# sepolicy relies on this Lineage macro. Definition matches Lineage's
+# device/lineage/sepolicy common/public/te_macros.
+define(`hal_attribute_lineage', `
+attribute hal_$1;
+expandattribute hal_$1 true;
+attribute hal_$1_client;
+expandattribute hal_$1_client true;
+attribute hal_$1_server;
+expandattribute hal_$1_server false;
+')
+
 hal_attribute_lineage(cameradesktop)
 hal_attribute_lineage(ifaa)
